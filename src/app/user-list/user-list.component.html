@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row mt-5 mb-3">
+        <div class="col-10">
+            <h1>List of Users</h1>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-primary" (click)="addUser()">
+                Add User
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <th><h5>Name</h5></th>
+                        <th><h5>Address</h5></th>
+                        <th><h5>Contact</h5></th>
+                        <th><h5>Actions</h5></th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let da of datas; let i = index">
+                            <td [routerLink]="['/sampleApp', da.id, 'view']" style="cursor: pointer; color: rgb(0, 119, 255);">{{da.firstName + " " + da.lastName}}</td>
+                            <td>{{da.address}}</td>
+                            <td>{{da.contact | phone}}</td>
+                            <td>
+                                <a [routerLink]="['/routePath']">Edit</a> 
+                                <a class="mx-3" (click)="deletes(i)" style="cursor: pointer;">Delete</a> 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
